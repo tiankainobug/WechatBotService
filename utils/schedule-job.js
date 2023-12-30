@@ -11,7 +11,7 @@ async function start(bot, data) {
             weiba.say(dataItem.text)
 
             // 发送成功后，通过文件传输助手，给自己一个回执。
-            const success = await bot.Room.find({topic: '文件传输助手'})
+            const success = await bot.Room.find({topic: '微信助手'})
             success.say("主人，定时任务已成功发送！消息如下：")
             success.say(fileBox)
             success.say(dataItem.text)
