@@ -1,6 +1,5 @@
 import schedule from 'node-schedule'
 import { FileBox } from 'file-box'
-import config from '../config/index.js'
 
 async function start(bot, data) {
   for (let dataItem of data.dataList) {
