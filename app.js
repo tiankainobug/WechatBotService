@@ -8,7 +8,7 @@ app.use(express.json());
 expressWS(app);
 
 // 处理 WebSocket 连接
-app.ws('/robot', function (ws, req) {
+app.ws('/websocket/robot', function (ws, req) {
   console.log('connect success')
 
   // 开启机器人
