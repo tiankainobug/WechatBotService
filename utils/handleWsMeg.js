@@ -22,8 +22,7 @@ export function handleWsMeg(ws, msg, bot) {
 
         })
         bot.on('logout', (user) => {
-            console.log(`用户 ${user} 退出了，开始重新登录！`)
-            bot.start()
+            console.log(`用户 ${user} 退出了！`)
         })
         bot.start()
         .catch(async e => {
@@ -36,5 +35,15 @@ export function handleWsMeg(ws, msg, bot) {
     if (msg.type === 'start') {
         console.log("设定定时任务成功！")
         scheduleJob.start(bot, msg.data)
+    }
+    // 退出微信
+    if (msg.type === 'logout') {
+        console.log("退出微信")
+        bot.stop().then(() => {
+            ws.send(JSON.stringify({
+                id: 'logout',
+                data: '退出成功！'
+            }))
+        })
     }
 }
