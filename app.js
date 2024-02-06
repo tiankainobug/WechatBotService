@@ -1,7 +1,6 @@
 import express, {json} from 'express'
 import expressWS from 'express-ws'
 import {handleWsMeg} from "./utils/handleWsMeg.js";
-import {WechatyBuilder} from "wechaty";
 
 const app = express()
 app.use(express.json());
@@ -11,11 +10,6 @@ expressWS(app);
 app.ws('/websocket/robot', function (ws, req) {
   console.log('connect success')
 
-  // 开启机器人
-  const bot = WechatyBuilder.build({
-    name: 'myBot'
-  })
-
   // 使用 ws 的 send 方法向连接另一端的客户端发送数据
   ws.send(JSON.stringify({
     id: 'success',
@@ -24,7 +18,7 @@ app.ws('/websocket/robot', function (ws, req) {
 
   // 使用 on 方法监听事件
   ws.on('message', function (msg) {
-    handleWsMeg(ws, JSON.parse(msg), bot)
+    handleWsMeg(ws, JSON.parse(msg))
   })
 
   // close 事件表示客户端断开连接时执行的回调函数
