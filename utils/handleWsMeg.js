@@ -69,6 +69,15 @@ export function handleWsMeg(ws, msg) {
     // 退出微信
     if (msg.type === 'logout') {
         console.log("退出微信")
+        scheduleJob.stop().then(success => {
+            if (success) {
+                console.log("取消定时任务成功！")
+                ws.send(JSON.stringify({
+                    id: 'stopSuccess',
+                    data: '取消成功！'
+                }))
+            }
+        })
         bot.logout().then(() => {
             ws.send(JSON.stringify({
                 id: 'logout',
