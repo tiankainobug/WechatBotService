@@ -1,14 +1,15 @@
 import OSS from 'ali-oss'
 import {v4} from 'uuid'
+import config from '../config/config.js'
 
 export async function ossService(file) {
 
     // 配置阿里云 OSS 客户端
     const client = new OSS({
-        accessKeyId: 'LTAI5tADSNp74AppJtH8RahF',
-        accessKeySecret: 'P3lo25iR7TOZzOPWYMKRTYCC8wjyQw',
-        region: 'oss-cn-beijing',
-        bucket: 'guli-1227',
+        accessKeyId: config.accessKeyId,
+        accessKeySecret: config.accessKeySecret,
+        region: config.region,
+        bucket: config.bucket,
     });
 
     // 获取当前日期 用来文件按日期分类
