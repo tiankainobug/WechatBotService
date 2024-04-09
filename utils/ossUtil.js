@@ -1,6 +1,6 @@
 import OSS from 'ali-oss'
 import {v4} from 'uuid'
-import config from '../config/config.js'
+import {config} from '../config/config.js'
 
 export async function ossService(file) {
 

@@ -1,6 +1,6 @@
 export const config = {
-    accessKeyId: '12312312312',
-    accessKeySecret: '12312312',
+    accessKeyId: 'LTAI5tADSNp74AppJtH8RahF',
+    accessKeySecret: 'P3lo25iR7TOZzOPWYMKRTYCC8wjyQw',
     region: 'oss-cn-beijing',
-    bucket: 'bucket',
+    bucket: 'guli-1227',
 }
