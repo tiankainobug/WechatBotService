@@ -9,7 +9,7 @@ async function start(bot, data) {
     return new Promise((resolve, reject) => {
         try {
             for (let dataItem of data.dataList) {
-                console.log("定时任务时间节点：", dataItem.time)
+                console.log("定时任务: ", JSON.stringify(dataItem))
                 const scheduleItem = schedule.scheduleJob(dataItem.time, async () => {
                     const weiba = await bot.Room.find({topic: data.topic})
                     if (dataItem.imgUrl){

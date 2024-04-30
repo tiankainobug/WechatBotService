@@ -4,7 +4,7 @@ import scheduleJob, {dataList, scheduleList, topic} from "./schedule-job.js";
 let bot = null
 
 export function handleWsMeg(ws, msg) {
-    console.log('ws:', msg)
+    console.log('ws收到消息:', msg)
     // 登录
     if (msg.type === 'login') {
         new Promise((resolve, reject) => {
@@ -84,5 +84,8 @@ export function handleWsMeg(ws, msg) {
                 data: '退出成功！'
             }))
         })
+    }
+    if (msg === 'pong') {
+        ws.send('pong')
     }
 }
